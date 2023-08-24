@@ -1,7 +1,7 @@
-# xceptional-tactics
+# Xceptional-Tactics
 
 ## Description
-( Coming Soon )
+( Coming Soon, currently under development. )
 
 
 ## Getting Started
