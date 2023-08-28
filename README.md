@@ -3,6 +3,12 @@
 ## Description
 ( Coming Soon, currently under development. )
 
+## Planning
+<ul>
+  <li>UI with Vanilla CSS</li>
+  <li>Logic with JavaScript</li>
+</ul>
+
 
 ## Getting Started
 
