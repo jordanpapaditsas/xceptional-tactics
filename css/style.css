@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(to right, rgba(255, 187, 92), rgba(205, 182, 153));
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.board-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid black;  
+}
+
+/* Hover Effects */
+
+.board-cell:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+#github i:hover {
+  transform: scale(1.3);
+}
