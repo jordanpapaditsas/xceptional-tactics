@@ -29,8 +29,11 @@ body {
   border: 1px solid black;  
 }
 
-/* Hover Effects */
+#github i {
+  color: black;
+}
 
+/* Hover Effects */
 .board-cell:hover {
   cursor: pointer;
   background-color: lightgrey;

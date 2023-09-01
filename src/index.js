@@ -1,17 +1,14 @@
 const gameBoard = (() => {
-  const board = [['', '', ''],['', '', ''],['', '', '']];
+  const board = [];
   
   const getBoard = () => board;
 
-  const renderBoard = boardCells => {
-    board.forEach((row, rowIndex) => {
-      row.forEach((cellValue, columnIndex) => {
-        const cellIndex = rowIndex * 3 + columnIndex;
-        boardCells[cellIndex].textContent = cellValue;
-      });
+  const renderBoard = () => {
+    displayController.boardCells.forEach((cell, index) => {
+      cell.textContent = board[index];
     });
   };
-  
+ 
   return {
      getBoard,
      renderBoard,
@@ -34,8 +31,7 @@ const displayController = (() => {
   const init = () => {
     gameBoard.renderBoard(boardCells);
   }
-  // Play again Btn
-  // Reset Btn
+
   return {
     player1,
     player2,
@@ -46,8 +42,9 @@ const displayController = (() => {
 })();
 
 const stateController = (() => {
-    // Player's turn
     let currentPlayer = displayController.player1;
+    let movesCount = 0;
+    let gameOver = false;
 
     const switchPlayer = () => {
       if (currentPlayer === displayController.player1) {
@@ -58,11 +55,19 @@ const stateController = (() => {
     };
 
     const checkIfCellIsEmpty = (event) => {
+      if (gameOver) return;
+
       const clickedCell = event.target;
 
       if (clickedCell.textContent === '') {
         clickedCell.textContent = currentPlayer.sign;
-        switchPlayer();
+        movesCount++;
+        if (checkForWinner(currentPlayer.sign)) {
+          console.log(`${currentPlayer.name} test`);   // Need to change it into div text content with the winning message
+          gameOver = true;
+        } else {
+          switchPlayer();
+        }
       }
     };
 
@@ -70,10 +75,37 @@ const stateController = (() => {
       cell.addEventListener('click', checkIfCellIsEmpty);
     });
 
-    // Score tracking - first to 3 wins -> winner
-    // Outcome message - winner 
+    const checkForWinner = (sign) =>  {
+      for (let i = 0; i < winningCondition.length; i++) {
+        let playerWins = true;
+        const cellsToCheck = winningCondition[i].map(index => {
+          return displayController.boardCells[index].textContent;
+        });
 
-    // Winning condition
+        for (const cell of cellsToCheck) {
+          if (cell !== sign) {
+            playerWins = false;
+            break;
+          }
+        }
+
+        if (playerWins) {
+          return true;
+        } else {
+          gameIsOver();
+        }
+      }
+
+      return false; 
+    };
+
+    const gameIsOver = () => {
+      if (movesCount === displayController.boardCells.length) {
+        console.log(`test`);  // working, remove it after 
+        gameOver = true;
+      }
+    };
+
     const winningCondition = [
       [0, 1, 2],
       [3, 4, 5],
@@ -84,11 +116,17 @@ const stateController = (() => {
       [0, 4, 8],
       [2, 4, 6]
     ];
-    
 
     return {
       switchPlayer,
+      gameIsOver,
     }
 })();
 
 displayController.init();
+
+    // Score tracking div
+    // Players name turn div
+    // Winning message Div
+    // Try Again btn
+    // Reset Btn
