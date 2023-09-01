@@ -1,13 +1,20 @@
 # Xceptional-Tactics
 
 ## Description
-( Coming Soon, currently under development. )
+Xceptional Tactics is an interactive web-based Tic Tac Toe game built using HTML, CSS, and JavaScript. This project showcases various features to enhance the gaming experience.
 
-## Planning
-<ul>
-  <li>UI with Vanilla CSS</li>
-  <li>Logic with JavaScript</li>
-</ul>
+## Live Preview
+**https://jordanpapaditsas.github.io/xceptional-tactics/**
+
+## Features
+- **Player Turn Display**: Keep track of the game progress with a clear indication of the current player's turn. The app shows the name of the active player.
+
+- **Dynamic Game Board**: The game board dynamically updates as players make their moves, providing a visual representation of the game's progression. 
+
+- **Reset All and Try Again**: Contains a "Reset All" button for starting all over fresh. At the end of each round the "Try again" button appears that provides another chance to play the game.
+
+- **Module and Factory Design Patterns**: The JavaScript logic behind Xceptional Tactics is implemented using Module and Factory design patterns, ensuring clean and maintainable code. This design pattern choice provides code organization and code reusability.
+
 
 
 ## Getting Started
