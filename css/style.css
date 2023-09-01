@@ -29,6 +29,21 @@ body {
   border: 1px solid black;  
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reset, .try-again {
+  margin-top: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
 #github i {
   color: black;
 }
