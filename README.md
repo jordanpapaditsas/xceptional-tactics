@@ -1,7 +1,7 @@
 # Xceptional-Tactics
 
 ## Description
-Xceptional Tactics is an interactive web-based Tic Tac Toe game built using HTML, CSS, and JavaScript. This project showcases Module and Factory design patterns, for better code's structure and maintainability through encapsulation.
+Xceptional Tactics is an interactive web-based Tic Tac Toe game built using HTML, CSS, and JavaScript. This project showcases Module and Factory design patterns, for better code's structure and maintainability through Encapsulation.
 
 ## Live Preview
 **https://jordanpapaditsas.github.io/xceptional-tactics/**
