@@ -94,6 +94,8 @@ const stateController = (() => {
         if (checkForWinner(currentPlayer.sign)) {
           displayController.displayPlayer.textContent = '';
           displayController.outcomeMessage.textContent = `${currentPlayer.name + "(" + currentPlayer.sign + ")"} wins!`;
+          displayController.resetBtn.classList.add('hidden');
+          displayController.tryAgainBtn.classList.remove('hidden');
           gameOver = true;
         } else {
           switchPlayer();
@@ -133,6 +135,8 @@ const stateController = (() => {
       if (movesCount === displayController.boardCells.length) {
         displayController.displayPlayer.textContent = '';
         displayController.outcomeMessage.textContent = 'It\'s a draw!';
+        displayController.resetBtn.classList.add('hidden');
+          displayController.tryAgainBtn.classList.remove('hidden');
         gameOver = true;
       }
     };
@@ -144,11 +148,14 @@ const stateController = (() => {
         currentPlayer = displayController.player1;
         displayController.displayPlayer.textContent = `Player ${currentPlayer.sign}'s turn`;
         displayController.outcomeMessage.textContent = '';
+        displayController.resetBtn.classList.remove('hidden');
+        displayController.tryAgainBtn.classList.add('hidden');
         gameOver = false;
       });
     };
 
     displayController.resetBtn.addEventListener('click', resetAll);
+    displayController.tryAgainBtn.addEventListener('click', resetAll);
 
     return {
       switchPlayer,
@@ -157,7 +164,3 @@ const stateController = (() => {
 })();
 
 displayController.init();
-
-    // Winning message Div + Player display -- >  need style
-    // Try Again btn
-    // Reset Btn
