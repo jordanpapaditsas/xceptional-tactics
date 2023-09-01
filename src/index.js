@@ -27,7 +27,7 @@ const displayController = (() => {
   const player2 = createPlayer('Player 2', 'O');
   const boardElement = document.querySelector('.board');
   const boardCells = document.querySelectorAll('.board-cell');
-  const scoreBoard = document.querySelector('.display-player-turn');
+  const displayPlayer = document.querySelector('.display-player-turn');
   const outcomeMessage = document.querySelector('.outcome-message');
   const buttonContainer = document.querySelector('.buttons');
   const resetBtn = document.querySelector('.reset');
@@ -42,7 +42,7 @@ const displayController = (() => {
     player2,
     boardElement,
     boardCells,
-    scoreBoard,
+    displayPlayer,
     buttonContainer,
     resetBtn,
     tryAgainBtn,
@@ -55,7 +55,7 @@ const stateController = (() => {
     let currentPlayer = displayController.player1;
     let movesCount = 0;
     let gameOver = false;
-    displayController.scoreBoard.textContent = `Player ${currentPlayer.sign}'s turn`;
+    displayController.displayPlayer.textContent = `Player ${currentPlayer.sign}'s turn`;
     const winningCondition = [
       [0, 1, 2],
       [3, 4, 5],
@@ -69,7 +69,7 @@ const stateController = (() => {
 
     const displayPlayer = () => {
       if (currentPlayer.sign && movesCount !== displayController.boardCells.length) {
-        displayController.scoreBoard.textContent = `Player ${currentPlayer.sign}'s turn`;
+        displayController.displayPlayer.textContent = `Player ${currentPlayer.sign}'s turn`;
       } 
     };
 
@@ -92,7 +92,7 @@ const stateController = (() => {
         clickedCell.textContent = currentPlayer.sign;
         movesCount++;
         if (checkForWinner(currentPlayer.sign)) {
-          displayController.scoreBoard.textContent = '';
+          displayController.displayPlayer.textContent = '';
           displayController.outcomeMessage.textContent = `${currentPlayer.name + "(" + currentPlayer.sign + ")"} wins!`;
           gameOver = true;
         } else {
@@ -131,20 +131,18 @@ const stateController = (() => {
 
     const gameIsOver = () => {
       if (movesCount === displayController.boardCells.length) {
-        displayController.scoreBoard.textContent = '';
+        displayController.displayPlayer.textContent = '';
         displayController.outcomeMessage.textContent = 'It\'s a draw!';
         gameOver = true;
       }
     };
-
-    
 
     const resetAll = () => {
       displayController.boardCells.forEach(cell => {
         cell.textContent = '';
         movesCount = 0;
         currentPlayer = displayController.player1;
-        displayController.scoreBoard.textContent = `Player ${currentPlayer.sign}'s turn`;
+        displayController.displayPlayer.textContent = `Player ${currentPlayer.sign}'s turn`;
         displayController.outcomeMessage.textContent = '';
         gameOver = false;
       });
