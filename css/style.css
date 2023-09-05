@@ -11,7 +11,23 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(to right, rgba(255, 187, 92), rgba(205, 182, 153));
+  background-image: linear-gradient(to right, rgb(23, 107, 135), rgb(100, 204, 197));
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+img {
+  width: 10rem;
+}
+
+h1 {
+  color: lightgrey;
 }
 
 .board {
@@ -40,6 +56,7 @@ body {
 .display-player-turn, .outcome-message {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: lightgrey;
 }
 
 .reset, .try-again {
@@ -59,8 +76,13 @@ body {
   display: none;
 }
 
+footer {
+  color: lightgrey;
+}
+
 #github i {
-  color: black;
+  color: lightgrey;
+  transition: 0.2s all ease-in-out;
 }
 
 /* Hover Effects */
@@ -70,7 +92,9 @@ body {
 }
 
 #github i:hover {
+  transition: 0.2s all ease-in-out;
   transform: scale(1.1);
+  color: rgb(5, 5, 5);
 }
 
 .reset:hover, .try-again:hover {
